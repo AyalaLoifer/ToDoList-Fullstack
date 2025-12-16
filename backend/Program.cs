@@ -59,6 +59,7 @@ app.UseSwaggerUI(options =>
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapGet("/", () => "Welcome to the ToDo API!");
 
 var items = app.MapGroup("/items").RequireAuthorization();
 
@@ -122,7 +123,6 @@ app.MapPost("/login", async (ToDoDbContext db, Users login) =>
 
 app.MapPost("/register", async (ToDoDbContext db, Users newUser) =>
 {
-    // בדיקה אם שם המשתמש כבר קיים
     if (await db.Users.AnyAsync(u => u.Username == newUser.Username))
         return Results.BadRequest(new { message = "Username already exists" });
 

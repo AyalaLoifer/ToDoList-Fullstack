@@ -16,9 +16,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
-           policy => policy.WithOrigins("http://localhost:3000","https://todolist-frontend-km9z.onrender.com")
-                           .AllowAnyHeader()
-                           .AllowAnyMethod());
+        policy => policy
+            .WithOrigins(
+                "http://localhost:3000",
+                "https://todolist-frontend-km9z.onrender.com"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials() 
+    );
 });
 
 

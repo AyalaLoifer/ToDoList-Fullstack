@@ -61,6 +61,9 @@ app.UseSwaggerUI(options =>
     options.RoutePrefix = string.Empty;
 });
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+app.Urls.Add($"http://*:{port}");
+app.Run();
 
 app.UseAuthentication();
 app.UseAuthorization();

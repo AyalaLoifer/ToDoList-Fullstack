@@ -128,7 +128,7 @@ app.MapPost("/login", async (ToDoDbContext db, Users login) =>
     }
 
     return Results.Unauthorized();
-}) .RequireCors("AllowFrontend");
+});
 
 
 app.MapPost("/register", async (ToDoDbContext db, Users newUser) =>

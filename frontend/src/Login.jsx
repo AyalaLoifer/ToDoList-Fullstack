@@ -15,7 +15,7 @@ export default function Login() {
       navigate('/');
     } catch (err) {
       console.error(err);
-     // window.location.reload();
+     window.location.reload();
       alert('Login failed: ' + (err.response?.data?.message || err.message));
     }
   };

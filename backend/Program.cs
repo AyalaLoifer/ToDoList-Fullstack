@@ -53,7 +53,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
-app.UseCors("AllowFrontend");
 app.UseSwagger();
 app.UseSwaggerUI(options =>
 {
@@ -64,7 +63,7 @@ app.UseSwaggerUI(options =>
 var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
 app.Urls.Add($"http://*:{port}");
 app.UseRouting();
-
+app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
 

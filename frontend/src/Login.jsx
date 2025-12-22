@@ -10,7 +10,7 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/login', { UserName: username, Password: password });
+      const res = await axios.post('/login', { Id:1 ,UserName: username, Password: password });
       localStorage.setItem('token', res.data.token);
       navigate('/');
     } catch (err) {

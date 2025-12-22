@@ -67,9 +67,6 @@ app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapMethods("/login", new[] { "OPTIONS" }, () => Results.Ok())
-   .WithName("PreflightLogin");
-
 app.MapGet("/", () => "Welcome to the ToDo API!");
 
 
